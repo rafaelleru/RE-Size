@@ -9,11 +9,11 @@ Only in Linux devices.
 ## How to use it
 
 You need to have installed Python 3.
-Then, just type the command: python3 resize.py
+Then, just type the command: ``python3 resize.py``
 
 ## Is this usefull?
 
-Maybe, it help me when I have to resize a bunch of images for a work, maybe to display them, an make it manually is just a boring task.
+Maybe. It help me when I have to resize a bunch of images for a work, maybe to display them, an make it manually is just a boring task.
 
 ## License
 
