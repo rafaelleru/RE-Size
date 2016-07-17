@@ -44,7 +44,7 @@ if first_answer == "Y":
 		try:
 			subprocess.call(['convert',path+images[i], "-resize",size,path+images[i]])
 		except CantConvert:
-			print("Can't conver the image "+path+images[i])
+			print("Can't convert the image "+path+images[i])
 		
 
 else:
@@ -56,4 +56,4 @@ else:
 		try:
 			 subprocess.call(['convert',path_and_image[i], "-resize",size,path_and_image[i]])
 		except CantConvert:
-			print("Can't conver the image "+path_and_image[i])
+			print("Can't convert the image "+path_and_image[i])
