@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+#       Copyright 2015 Francisco Carrillo (https://github.com/pacocp)
+#
+#       This program is free software: you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation, either version 3 of the License, or
+#       (at your option) any later version.
+#
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#
+#       You should have received a copy of the GNU General Public License
+#       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#----------------------------------------------------------------------
+# Francisco Carrillo Pérez <carrilloperezfrancisco@gmail.com>
+#----------------------------------------------------------------------
+
+#-----------------------------------------------------------------------
+#
+#  This script is used to change the size of a bunch of images in Linux
+#
+#------------------------------------------------------------------------
+
+from sys import argv
+import subprocess
+
+images = []
+number_of_images = input("Type the number of images you want to resize: ")
+first_answer = "Z"
+while first_answer != "Y" and first_answer != "N":
+	first_answer = input("Are all of them in the same path?(Y/N): ")
+if first_answer == "Y":
+	path = input("Type the path of all your images(for example: /my_images/): ")
+	size = input("Please insert the size of the resize(for example: 217x185): ")
+	for i in range(int(number_of_images)):
+		image = input("Please type the name of the image(include the extension please): ")
+		images.append(image)
+	for i in range(int(number_of_images)):
+		try:
+			subprocess.call(['convert',path+images[i], "-resize",size,path+images[i]])
+		except CantConvert:
+			print("Can't conver the image "+path+images[i])
+		
+
+else:
+	for i in range(int(number_of_images)):
+		path_and_image = input("Please type the path and the image(for example: /my_images/image1.png): ")
+		images.append(image)
+	size = input("Please insert the size of the resize(for example: 217x185): ")
+	for i in range(int(number_of_images)):
+		try:
+			 subprocess.call(['convert',path_and_image[i], "-resize",size,path_and_image[i]])
+		except CantConvert:
+			print("Can't conver the image "+path_and_image[i])
