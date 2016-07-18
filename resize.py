@@ -50,10 +50,12 @@ if first_answer == "Y":
 else:
 	for i in range(int(number_of_images)):
 		path_and_image = input("Please type the path and the image(for example: /my_images/image1.png): ")
-		images.append(image)
+		images.append(path_and_image)
 	size = input("Please insert the size of the resize(for example: 217x185): ")
 	for i in range(int(number_of_images)):
 		try:
-			 subprocess.call(['convert',path_and_image[i], "-resize",size,path_and_image[i]])
+			 subprocess.call(['convert',images[i], "-resize",size,images[i]])
 		except CantConvert:
-			print("Can't convert the image "+path_and_image[i])
+			print("Can't convert the image "+images[i])
+
+print("All have been converted!\n")
