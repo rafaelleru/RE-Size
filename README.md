@@ -11,6 +11,8 @@ Only in Linux devices.
 You need to have installed Python 3.
 Then, just type the command: ``python3 resize.py``
 
+[Image1]: https://github.com/pacocp/RE-Size/blob/master/Images/image1.png  "Run example"
+
 ## Is this usefull?
 
 Maybe. It help me when I have to resize a bunch of images for a work, maybe to display them, an make it manually is just a boring task.
