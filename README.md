@@ -11,7 +11,7 @@ Only in Linux devices.
 You need to have installed Python 3.
 Then, just type the command: ``python3 resize.py``
 
-[Image1]: https://github.com/pacocp/RE-Size/blob/master/Images/image1.png  "Run example"
+![Run example](https://github.com/pacocp/RE-Size/blob/master/Images/image1.png)
 
 ## Is this usefull?
 
