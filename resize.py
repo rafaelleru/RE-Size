@@ -28,34 +28,59 @@
 
 from sys import argv
 import subprocess
+import os
 
 images = []
 number_of_images = input("Type the number of images you want to resize: ")
 first_answer = "Z"
 while first_answer != "Y" and first_answer != "N":
-	first_answer = input("Are all of them in the same path?(Y/N): ")
-if first_answer == "Y":
-	path = input("Type the path of all your images(for example: /my_images/): ")
-	size = input("Please insert the size of the resize(for example: 217x185): ")
-	for i in range(int(number_of_images)):
-		image = input("Please type the name of the image(include the extension please): ")
-		images.append(image)
-	for i in range(int(number_of_images)):
-		try:
-			subprocess.call(['convert',path+images[i], "-resize",size,path+images[i]])
-		except CantConvert:
-			print("Can't convert the image "+path+images[i])
-		
+    first_answer = input("Are all of them in the same path?(Y/N): ")
 
+if first_answer == "Y":
+    second_answer = input("Want you to resize all of them?(Y/N): ")
+
+    if second_answer == "Y":
+        # code here
+        path = input(
+            "Type the path of all your images(for example: /my_images/): ")
+        size = input(
+            "Please insert the size of the resize(for example: 217x185): ")
+
+        for root, dirs, files in os.walk(path):
+            for image in files:
+                try:
+                    subprocess.call(
+                        ['convert', path + image, "-resize", size, path + image])
+                except CantConvert:
+                    print("Can't convert the image " + path + image)
+    else:
+        path = input(
+            "Type the path of all your images(for example: /my_images/): ")
+
+        size = input(
+            "Please insert the size of the resize(for example: 217x185): ")
+
+        for i in range(int(number_of_images)):
+            image = input(
+                "Please type the name of the image(include the extension please): ")
+            images.append(image)
+            for i in range(int(number_of_images)):
+                try:
+                    subprocess.call(
+                        ['convert', path + images[i], "-resize", size, path + images[i]])
+                except CantConvert:
+                    print("Can't convert the image " + path + images[i])
 else:
-	for i in range(int(number_of_images)):
-		path_and_image = input("Please type the path and the image(for example: /my_images/image1.png): ")
-		images.append(path_and_image)
-	size = input("Please insert the size of the resize(for example: 217x185): ")
-	for i in range(int(number_of_images)):
-		try:
-			 subprocess.call(['convert',images[i], "-resize",size,images[i]])
-		except CantConvert:
-			print("Can't convert the image "+images[i])
+    for i in range(int(number_of_images)):
+        path_and_image = input(
+            "Please type the path and the image(for example: /my_images/image1.png): ")
+        images.append(path_and_image)
+    size = input(
+        "Please insert the size of the resize(for example: 217x185): ")
+    for i in range(int(number_of_images)):
+        try:
+            subprocess.call(['convert', images[i], "-resize", size, images[i]])
+        except CantConvert:
+            print("Can't convert the image " + images[i])
 
 print("All have been converted!\n")
