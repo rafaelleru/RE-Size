@@ -31,10 +31,9 @@ import subprocess
 import os
 
 images = []
-number_of_images = input("Type the number of images you want to resize: ")
 first_answer = "Z"
 while first_answer != "Y" and first_answer != "N":
-    first_answer = input("Are all of them in the same path?(Y/N): ")
+    first_answer = input("Are all the images that you want to resize in the same path?(Y/N): ")
 
 if first_answer == "Y":
     second_answer = input("Want you to resize all of them?(Y/N): ")
@@ -54,6 +53,7 @@ if first_answer == "Y":
                 except CantConvert:
                     print("Can't convert the image " + path + image)
     else:
+        number_of_images = input("Type the number of images you want to resize: ")
         path = input(
             "Type the path of all your images(for example: /my_images/): ")
 
